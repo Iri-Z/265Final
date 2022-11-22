@@ -1,0 +1,67 @@
+       
+      <div class="mainContainer"> <!-- A Row Contanier -->
+          
+          <div class="row1-col-1"> 
+            <!-- Same part of nav bar for everyone-->
+            <a href="/">  
+                <p> HOME </p>
+            </a><hr>
+
+            <a href="/catalog">
+                <p> CATALOG </p>
+           </a><hr>
+            <% if (user) { %>
+                <!--If a general user is signed in this is their nav bar-->
+                <a href="/account/user/<%= user.id %>">
+                    <p> ACCOUNT </p>
+               </a><hr>
+              <a href="/account/mealplanner">
+                    <p>MEAL PLANNER </p>
+               </a><hr>
+               <a href="/aboutus">
+                <p> ABOUT US </p>
+               </a><hr>
+
+               <div class="row2-col-1"> 
+                <a href="/logout">
+                    <br>
+                 <p> Log Out </p>
+                </a><hr>
+                <!-- row2-col-1 -->
+                </div>
+            <% } else if (admin) { %>
+                <!--If an admin is signed in this is their nav bar-->
+                <a href="/admin/dashboard">
+                    <p> DASHBOARD </p>
+               </a><hr>
+               <a href="/aboutus">
+                <p> ABOUT US </p>
+                </a><hr>
+
+               <div class="row2-col-1"> 
+                <a href="/logout">
+                    <br>
+                 <p> Log Out </p>
+                </a><hr>
+                <!-- row2-col-1 -->
+                </div>
+            <% } else { %>
+                <!--If no one is signed in this is their nav bar-->
+                <a href="/aboutus">
+                    <p> ABOUT US </p>
+               </a><hr>
+                <div class="row2-col-1"> 
+                    <a href="/login">
+                        <br>
+                     <p> Log In </p>
+                    </a><hr>
+                    <a href="/signup">
+                        <br>
+                     <p> Sign Up </p>
+                    </a><hr>
+               <!-- row2-col-1 -->
+               </div>
+            <% } %>
+              
+            <!-- row1-col-1 -->
+          </div> 

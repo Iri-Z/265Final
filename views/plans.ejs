@@ -1,0 +1,25 @@
+<%- include("./partials/header.ejs") %>
+
+<%- include("./partials/nav.ejs") %>
+
+<div class="row1-col-2">
+    <p>Meal Plan page</p>
+    <br><br><hr>
+    <!-- row1-col-2 -->
+    <% if (plans.length > 0) { %>
+        <% plans.forEach(plan => { %>
+                <div class="catalog_box">
+                    <h3><%= plan.id %></h3>
+                    <p><%= plan.numDays %></p>
+                    <p><%= plan.numMeals %></p>
+                    <a href ="/account/plans/<%=plan.id %>" style="color: aliceblue; text-decoration: underline;">View More</a>
+                </div>
+        <% }) %>
+    <% } else { %>
+        <p>There are no plans to display...</p>
+    <% } %>
+</div>
+
+<%- include("./partials/favs.ejs") %>
+
+<%- include("./partials/footer.ejs") %>

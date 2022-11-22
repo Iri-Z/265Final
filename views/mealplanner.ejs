@@ -1,0 +1,93 @@
+<%- include("./partials/header.ejs") %>
+
+<%- include("./partials/nav.ejs") %>
+
+<div class="row1-col-2">
+        
+    <p style = "padding-left: 10px;">SCHEDULER</p>
+<hr>            
+    <div class="icon-container">
+        
+<div class="scheduler_form_container">    
+<form id="mealForm">
+<label>Number Of Days: (Range from 1-31)</label>
+<input  id="numDays" type="number" required min="1" max="31" step="1" name="numDays">
+       <br>
+<label>Meals per Day: (Range from 1-10)</label>
+<input id="numMeals" type="number" required min="1" max="10" name="numMeals">     
+       <br><hr>
+<label>Meal Types:</label> 
+<br><br>
+<label for="breakfast"> Breakfast</label>
+<input id="breakfast" type="checkbox" value="true" name="breakfast" >
+<label for="lunch"> Lunch</label>
+<input id="lunch" type="checkbox" value="true" name="lunch">
+<label for="dinner"> Dinner</label>
+<input id="dinner" type="checkbox" value="true" name="dinner">
+<input id="userId" type="hidden" value="<%=user.id%>" name="userId">
+       <hr><br><hr>
+<button>submit</button>
+<!-- <button  id="clear">clear</button> -->
+
+</form>
+</div>
+
+<!-- icon-container -->
+</div>
+<br><br><hr>
+<!-- row1-col-2 -->
+</div>
+
+<%- include("./partials/favs.ejs") %>
+
+<%- include("./partials/footer.ejs") %>
+
+<script>
+       const form = document.getElementById('mealForm'); 
+
+       form.addEventListener('submit', async (e) => {
+              e.preventDefault();
+              const data = new FormData(form);
+
+              const breakfastVal = data.get('breakfast');
+              if(!breakfastVal) {
+                     data.append('breakfast', false);
+              } 
+              const lunchVal = data.get('lunch');
+              if(!lunchVal) {
+                     data.append('lunch', false);
+              } 
+              const dinnerVal = data.get('dinner');
+              if(!dinnerVal) {
+                     data.append('dinner', false);
+              }
+              const queryString = new URLSearchParams(data);
+              try {
+                     const res = await fetch("/account/mealplanner", { 
+                     method: 'POST', 
+                     headers: {'Content-Type':'application/json'},
+                     body: JSON.stringify({ 
+                     numDays: data.get('numDays'),
+                     numMeals: data.get('numMeals'),
+                     breakfast: data.get('breakfast'),
+                     lunch: data.get('lunch'),
+                     dinner: data.get('dinner'),
+                     userId: data.get('userId')
+                     })
+              });
+              const returnData = await res.json();
+              if(returnData.errors) {
+                //Register errors
+                //Will be more important if advanced options become functional
+
+              }
+              if(returnData.plan) {
+                location.assign('/account/plans/'+returnData.plan);
+              }
+
+              } catch (err) {
+                     console.log(err);
+              }
+       });
+
+</script>

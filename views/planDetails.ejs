@@ -1,0 +1,42 @@
+<%- include("./partials/header.ejs") %>
+
+<%- include("./partials/nav.ejs") %>
+
+<div class="row1-col-2">
+    <p>Plan Detail Page</p>
+    <br><br><hr>
+    <!-- row1-col-2 -->
+    <p><%=numDays%> <%=numMeals%></p>
+    <% if (recipes.length > 0) { %>
+        <% recipes.forEach(recipe => { %>
+                <div class="catalog_box">
+                    <h3><%= recipe.name %></h3>
+                    <p><%= recipe.description %></p>
+                    <a href ="/catalog/<%=recipe.id %>" style="color: aliceblue; text-decoration: underline;">View More</a>
+                </div>
+        <% }) %>
+                <a href="/account/list/<%=planId %>">Plan Ingredient List</a>
+
+                <div class="deletePlan">
+                    <form id="deletePlanForm" data-doc="<%=planId %>" >
+                        <input type="button" value="Delete Plan" class='deletePlanBtn' data-doc="<%= planId %>">
+                    </form>
+                </div>
+
+    <% } else { %>
+        <p>There are no recipes to display...</p>
+    <% } %>
+</div>
+
+<%- include("./partials/favs.ejs") %>
+
+<%- include("./partials/footer.ejs") %>
+
+<script>
+    const trashcan = document.querySelector('input.deletePlanBtn');
+    trashcan.addEventListener('click', (e) => {
+        const endpoint = `/account/plans/${trashcan.dataset.doc}`;
+
+    });
+
+</script>

@@ -1,0 +1,55 @@
+<%- include("./partials/header.ejs") %>
+
+<%- include("./partials/nav.ejs") %>
+
+<div class="row1-col-2">
+    <p style = "padding-left: 10px;">ACCOUNTS</p>
+<hr>           
+        <div class="icon-container">
+         
+
+   <form action="name_Of_My_PHP_File.php" method="post">
+       <div class="account_form_container">
+       
+           First Name: <input  id="fName" type="text" required placeholder="First Name">
+          
+    <br>
+           
+          Last Name: <input id="lName" type="text" required placeholder="Last Name">
+         
+           
+           <br>
+           
+          Username: <input id="uName" type="email" required placeholder="Email">
+          
+           <br>
+           
+           Password: <input id="pName" type="password" required placeholder="Strong Password">
+           <a href="" style="text-decoration: underline; color: blue;"> Reset</a>
+           <br><br>
+       <hr>
+           <input id ="submit" type="submit" required> 
+           
+           
+           <h3>Testing</h3>
+           <p><%=User.id%></p><br>
+           <p><%=User.fName%></p><br>
+           <p><%=User.lName%></p><br>
+           <p><%=User.email%></p><br>
+           <p><%=User.username%></p><br>
+            <a href="/account/plans">View Saved Meal Plans</a>
+           
+           <!-- Account Container Form -->
+           </div>
+<!-- Account Form -->
+</form>
+            
+             <!-- icon-container -->
+           </div>
+<br><br><hr>
+       <!-- row1-col-2 -->
+</div>
+
+<%- include("./partials/favs.ejs") %>
+
+<%- include("./partials/footer.ejs") %>

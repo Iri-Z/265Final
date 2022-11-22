@@ -1,0 +1,82 @@
+<%- include("./partials/header.ejs") %>
+
+<%- include("./partials/nav.ejs") %>
+
+<div class="row1-col-2">
+    <p>Sign Up page</p>
+    <br><br><hr>
+    <!-- row1-col-2 -->
+
+    <div id="signup">
+        <form id="signupForm">
+           <h2>Sign Up</h2>
+           <label for="fName">First Name: </label>
+           <input type="text" name="fName" required>
+           <div class="formError" id="fName error"></div> <br>
+           <label for="lName">Last Name: </label>
+           <input type="text" name="lName" required>
+           <div class="formError" id="lName error"></div> <br>
+           <label for="email">Email: </label>
+           <input type="text" name="email" required>
+           <div class="formError" id="email error"></div> <br>
+           <label for="phone">Phone Number: </label>
+           <input type="text" name="phone">
+           <div class="formError" id="phone error"></div> <br>
+           <label for="username">Username:</label>
+           <input type="text" name="username" required />
+           <div class="formError" id="username error"></div> <br>
+           <label for="password">Password:</label>
+           <input type="password" name="password" required />
+           <div class="formError" id="password error"></div><br>
+           <button>Sign Up</button>
+        </form>
+    </div>
+</div>
+
+<%- include("./partials/favs.ejs") %>
+
+<%- include("./partials/footer.ejs") %>
+
+<script>
+const signUpForm = document.getElementById('Form');
+const usernameError = document.getElementById('username error');
+const passwordError = document.getElementById('password error');
+
+signupForm.addEventListener('submit', async (e) => {
+ e.preventDefault();
+
+ //reset errors
+ usernameError.textContent = '';
+ passwordError.textContent = '';
+
+ //get the values
+ const fName = signupForm.fName.value;
+ const lName = signupForm.lName.value;
+ const email = signupForm.email.value;
+ const phone = signupForm.phone.value;
+ const username = signupForm.username.value;
+ const password = signupForm.password.value;
+
+ try {
+     const res = await fetch('/signup', {
+         method: 'POST',
+         body: JSON.stringify({fName, lName, email, phone, username, password}),
+         headers: { 'Content-Type': 'application/json'}
+     });
+     const data = await res.json();
+     console.log(data);
+     if(data.errors) {
+         usernameError.textContent = data.errors.username;
+         passwordError.textContent = data.errors.password;
+
+     }
+     if(data.user) {
+         location.assign('/');
+     }
+
+ }catch (err) {
+     console.log(err);
+ }
+});
+
+</script>

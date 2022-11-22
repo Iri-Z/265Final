@@ -1,0 +1,94 @@
+<%- include("./partials/header.ejs") %>
+
+<%- include("./partials/nav.ejs") %>
+
+<div class="row1-col-2">
+        
+    <p style=" padding-left: 11px; ">HOME</p>
+   <hr>
+   <div class="icon-container">
+
+  <% if (user) { %>
+      <!--If a general user is signed in this is their nav bar-->
+    <div id="blue">
+        <a href="/account/user/<%= user.id %>">
+          <p> ACCOUNT </p>
+          <p>Accounts are great for learni gnjkgkggkhgh ghgjg hg jgj  hdajd alhdlk alljd </p> 
+        <div id="imgContainer">
+         <img src ="images/sign-in.png">
+         </div>
+       </a>
+    </div>
+    <div id="gray">
+      <a href="/account/mealplanner">
+        <p> MEAL PLANNER </p>
+        <p>Sceduler are great for learni gnjkgkggkhgh ghgjg hg jgj  hdajd alhdlk alljd </p>     
+        <div id="imgContainer">
+          <img src ="images/scheduler.png">
+        </div>
+      </a>
+    </div>    
+    <div id="cornflowerblue"> 
+       <a href="/catalog">
+       <p> CATALOG </p>
+       <p>Catalog are great for learni gnjkgkggkhgh ghgjg hg jgj  hdajd alhdlk alljdfafa </p>
+       <div id="imgContainer">
+         <img src ="images/catalog.png">
+       </div>
+       </a>
+    </div>
+
+  <% } else if (admin) { %>
+      <!--If an admin is signed in this is their nav bar-->
+    <div id="cornflowerblue"> 
+        <a href="/catalog">
+        <p> CATALOG </p>
+        <p>Catalog are great for learni gnjkgkggkhgh ghgjg hg jgj  hdajd alhdlk alljdfafa </p>
+        <div id="imgContainer">
+           <img src ="images/catalog.png">
+        </div>
+        </a>
+    </div>
+
+    <div id="orange">
+      <a href="/admin/dashboard">
+      <p> DASHBOARD </p>    
+      <p>Dashboard are great for learni gnjkgkggkhgh ghgjg hg jgj  hdajd alhdlk alljd </p>
+        <div id="imgContainer">
+          <img src ="images/admin-sys.png">
+        </div>
+      </a>
+    </div>
+  <% } else { %>
+      <!--If no one is signed in this is their nav bar-->
+      <div id="cornflowerblue"> 
+        <a href="/catalog">
+        <p> CATALOG </p>
+        <p>Catalog are great for learni gnjkgkggkhgh ghgjg hg jgj  hdajd alhdlk alljdfafa </p>
+        <div id="imgContainer">
+           <img src ="images/catalog.png">
+        </div>
+        </a>
+      </div>
+      <div id="gray">
+        <a href="/testscheduler">
+          <p> SCHEDULER </p>
+          <p> Trial Scheduler to demo product??? </p>     
+          <div id="imgContainer">
+            <img src ="images/scheduler.png">
+          </div>
+        </a>
+      </div> 
+
+      
+  <% } %>        
+        <!-- icon-container -->
+    </div>
+   <br><br><hr>
+
+   <!-- row1-col-2 -->
+   </div>
+
+   <%- include("./partials/favs.ejs") %>
+
+   <%- include("./partials/footer.ejs") %>

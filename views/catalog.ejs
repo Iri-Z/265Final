@@ -1,0 +1,86 @@
+<%- include("./partials/header.ejs") %>
+
+<%- include("./partials/nav.ejs") %>
+
+<div class="row1-col-2">
+            
+    <p style = "padding-left: 10px;">CATALOG</p>
+<hr>            
+         <div class="icon-container">
+                <div class="catalog_container">
+                    <P>BREAKFAST</P> 
+                    <hr>
+                    <% if (recipes.length > 0) { %>
+                        <% recipes.forEach(recipe => { %>
+                            <% if(recipe.recipeTypeId == 1) { %>
+                                <div class="catalog_box">
+                                    <h3><%= recipe.name %></h3>
+                                    <p><%= recipe.description %></p>
+                                    <a href ="/catalog/<%=recipe.id %>" style="color: aliceblue; text-decoration: underline;">View More</a>
+                                </div>
+                            <% } %>
+                        <% }) %>
+                    <% } else { %>
+                        <p>There are no recipes to display...</p>
+                    <% } %>
+                 <hr>
+                    <button class="btn" type="submitAdd" style="float: left; padding:10px;">Add More</button>   
+                <!-- Breakfast Catalog- container -->
+             </div>
+           
+             
+            <div class="catalog_container">
+                <p>LUNCH</p>
+                <hr>
+                <% if (recipes.length > 0) { %>
+                    <% recipes.forEach(recipe => { %>
+                        <% if(recipe.recipeTypeId == 2) { %>
+                            <div class="catalog_box">
+                                <h3><%= recipe.name %></h3>
+                                <p><%= recipe.description %></p>
+                                <a href ="/catalog/<%=recipe.id %>" style="color: aliceblue; text-decoration: underline;">View More</a>
+                            </div>
+                        <% } %>
+                    <% }) %>
+                <% } else { %>
+                    <p>There are no recipes to display...</p>
+                <% } %>
+                 <hr> 
+                 <button class="btn" type="submitAdd" style="float: left; padding:10px;">Add More</button>     
+              <!-- Lunch Catalog- container -->
+             </div>
+             
+             
+             <div class="catalog_container">
+                 <p>DINNER</p>
+                 <hr>
+                 <% if (recipes.length > 0) { %>
+                    <% recipes.forEach(recipe => { %>
+                        <% if(recipe.recipeTypeId == 3) { %>
+                            <div class="catalog_box">
+                                <h3><%= recipe.name %></h3>
+                                <p><%= recipe.description %></p>
+                                <a href ="/catalog/<%=recipe.id %>" style="color: aliceblue; text-decoration: underline;">View More</a>
+                            </div>
+                        <% } %>
+                    <% }) %>
+                <% } else { %>
+                    <p>There are no recipes to display...</p>
+                <% } %>
+                 <hr>
+                <button class="btn" type="submitAdd" style="float: left; padding:10px;">Add More</button>   
+             
+              <!-- Dinner Catalog- container -->
+             </div>
+            
+               
+              
+             <!-- icon-container -->
+            </div>
+<br><br><hr>
+        <!-- row1-col-2 -->
+    </div>
+
+    <%- include("./partials/favs.ejs") %>
+
+    <%- include("./partials/footer.ejs") %>

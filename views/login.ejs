@@ -1,0 +1,63 @@
+<%- include("./partials/header.ejs") %>
+
+<%- include("./partials/nav.ejs") %>
+
+<div class="row1-col-2">
+    <p>Login Page</p>
+    <br><br><hr>
+    <!-- row1-col-2 -->
+
+    <div id="login">
+    <form id="loginForm">
+        <label for="username">Username</label>
+        <input type="text" name="username"/>
+        <div class="formError" id="username error"></div><br>
+        <label for="password">Password</label>
+        <input type="password" name="password"/>
+        <div class="formError" id="password error"></div><br>
+        <button>Log In</button>
+    </form>
+    </div>
+</div>
+
+<%- include("./partials/favs.ejs") %>
+
+<%- include("./partials/footer.ejs") %>
+
+<script>
+    const loginForm = document.getElementById('loginForm');
+    const usernameError = document.getElementById('username error');
+    const passwordError = document.getElementById('password error');
+    
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        //reset errors
+        usernameError.textContent = '';
+        passwordError.textContent = '';
+
+        //get the values
+        const username = loginForm.username.value;
+        const password = loginForm.password.value;
+
+        try {
+            const res = await fetch('/login', {
+                method: 'POST',
+                body: JSON.stringify({username, password}),
+                headers: { 'Content-Type': 'application/json'}
+            });
+            const data = await res.json();
+            if(data.errors) {
+                usernameError.textContent = data.errors.username;
+                passwordError.textContent = data.errors.password;
+
+            }
+            if(data.user) {
+                location.assign('/');
+            }
+
+        }catch (err) {
+            console.log(err);
+        }
+    });
+      </script>
