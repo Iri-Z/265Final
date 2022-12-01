@@ -10,34 +10,44 @@
 
    <form action="name_Of_My_PHP_File.php" method="post">
        <div class="account_form_container">
-       
-           First Name: <input  id="fName" type="text" required placeholder="First Name">
-          
-    <br>
+        <h3>Account Information</h3>
+        <div style="display: flex">
+            Account ID: <p><%=User.id%></p>
+        </div>
+
+        <div style="display: flex">
+            First Name: <p><%=User.fName%></p><br>
+        </div>
+        <input  id="fName" type="hidden" required placeholder="Updated First Name">
+
+        <div style="display: flex">
+            Last Name: <p><%=User.lName%></p><br>
+        </div>
+        <input id="lName" type="hidden" required placeholder="Updated Last Name">
+
+        <div style="display: flex">
+            Email: <p><%=User.email%></p><br>
+        </div>
+        <input id="email" type="hidden" required placeholder="Updated Email">
+
+        <div style="display: flex">
+            Username: <p><%=User.username%></p><br>
+        </div>
+        <input id="username" type="hidden" required placeholder="Updated Username"> 
+
+        <div style="display: flex">
+            Password: <p>Hidden Value</p>
+        </div>
+        <input id="password" type="hidden" required placeholder="Updated Password">
+        <br>
+        <br><br>
+        <hr>
+        <button id="edit">Edit</button>
+        <button style="visibility: hidden;">Update</button>
+        <button style="visibility: hidden;" style="text-decoration: underline; color: blue;">Reset</button>
+        <br>
            
-          Last Name: <input id="lName" type="text" required placeholder="Last Name">
-         
-           
-           <br>
-           
-          Username: <input id="uName" type="email" required placeholder="Email">
-          
-           <br>
-           
-           Password: <input id="pName" type="password" required placeholder="Strong Password">
-           <a href="" style="text-decoration: underline; color: blue;"> Reset</a>
-           <br><br>
-       <hr>
-           <input id ="submit" type="submit" required> 
-           
-           
-           <h3>Testing</h3>
-           <p><%=User.id%></p><br>
-           <p><%=User.fName%></p><br>
-           <p><%=User.lName%></p><br>
-           <p><%=User.email%></p><br>
-           <p><%=User.username%></p><br>
-            <a href="/account/plans">View Saved Meal Plans</a>
+        <a href="/account/plans">View Saved Meal Plans</a>
            
            <!-- Account Container Form -->
            </div>
@@ -53,3 +63,7 @@
 <%- include("./partials/favs.ejs") %>
 
 <%- include("./partials/footer.ejs") %>
+
+<script>
+    
+</script>

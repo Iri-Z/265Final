@@ -4,20 +4,24 @@
 
 <div class="row1-col-2">
     <p>Login Page</p>
-    <br><br><hr>
+    <hr>
     <!-- row1-col-2 -->
+    <div class="icon-container">
 
-    <div id="login">
-    <form id="loginForm">
-        <label for="username">Username</label>
-        <input type="text" name="username"/>
-        <div class="formError" id="username error"></div><br>
-        <label for="password">Password</label>
-        <input type="password" name="password"/>
-        <div class="formError" id="password error"></div><br>
-        <button>Log In</button>
-    </form>
-    </div>
+        <div id="login" style="margin-left: auto; margin-right: auto;">
+            <form id="loginForm">
+                <h2>Log In</h2>
+                <label for="username">Username</label>
+                <input type="text" name="username"/>
+                <div class="formError" id="username error"></div><br>
+                <label for="password">Password</label>
+                <input type="password" name="password"/>
+                <div class="formError" id="password error"></div><br>
+                <button>Log In</button>
+            </form>
+            </div>
+        </div>
+
 </div>
 
 <%- include("./partials/favs.ejs") %>

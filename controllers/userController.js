@@ -62,7 +62,7 @@ module.exports.account_post = (req, res) => {
     //Update Account information
 };
 
-//Creates MEal plan and then sends user to that plan's page
+//Creates Meal plan and then sends user to that plan's page
 module.exports.mealplanner_post = async (req, res) => {
     //Make a meal plan
     const { numDays, numMeals, breakfast, lunch, dinner, userId } = req.body;

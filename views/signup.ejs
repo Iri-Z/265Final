@@ -4,33 +4,35 @@
 
 <div class="row1-col-2">
     <p>Sign Up page</p>
-    <br><br><hr>
+    <hr>
     <!-- row1-col-2 -->
-
-    <div id="signup">
-        <form id="signupForm">
-           <h2>Sign Up</h2>
-           <label for="fName">First Name: </label>
-           <input type="text" name="fName" required>
-           <div class="formError" id="fName error"></div> <br>
-           <label for="lName">Last Name: </label>
-           <input type="text" name="lName" required>
-           <div class="formError" id="lName error"></div> <br>
-           <label for="email">Email: </label>
-           <input type="text" name="email" required>
-           <div class="formError" id="email error"></div> <br>
-           <label for="phone">Phone Number: </label>
-           <input type="text" name="phone">
-           <div class="formError" id="phone error"></div> <br>
-           <label for="username">Username:</label>
-           <input type="text" name="username" required />
-           <div class="formError" id="username error"></div> <br>
-           <label for="password">Password:</label>
-           <input type="password" name="password" required />
-           <div class="formError" id="password error"></div><br>
-           <button>Sign Up</button>
-        </form>
+    <div class="icon-container">
+        <div id="signup" style="margin-left: auto; margin-right: auto;">
+            <form id="signupForm">
+               <h2>Sign Up</h2>
+               <label for="fName">First Name: </label>
+               <input type="text" name="fName" required>
+               <div class="formError" id="fName error"></div> <br>
+               <label for="lName">Last Name: </label>
+               <input type="text" name="lName" required>
+               <div class="formError" id="lName error"></div> <br>
+               <label for="email">Email: </label>
+               <input type="text" name="email" required>
+               <div class="formError" id="email error"></div> <br>
+               <label for="phone">Phone Number: </label>
+               <input type="text" name="phone">
+               <div class="formError" id="phone error"></div> <br>
+               <label for="username">Username:</label>
+               <input type="text" name="username" required />
+               <div class="formError" id="username error"></div> <br>
+               <label for="password">Password:</label>
+               <input type="password" name="password" required />
+               <div class="formError" id="password error"></div><br>
+               <button>Sign Up</button>
+            </form>
+        </div>
     </div>
+
 </div>
 
 <%- include("./partials/favs.ejs") %>

@@ -1,7 +1,5 @@
-
 *{
     box-sizing: border-box;
-  
   } 
   .wrapper{
       width: auto;
@@ -11,8 +9,6 @@
       padding-left: 0;
       padding-right: 0;   
   }
-  
-  
   body{
       position: static;
       background-color: #F2EDE4;
@@ -29,7 +25,6 @@
       text-align: center;
       font-size: 30px; 
   }
-  
   .mainContainer{ 
       display: flex;
       flex-direction: row;
@@ -37,10 +32,7 @@
       width: 100%;
       background-color: #F2EDE4;  
   }
-  
   /*------catalog_pdf_row1-col-2-------*/
-  
-  
   .catalog_pdf_mainContainer{
       display: flex;
       flex-direction: row;
@@ -48,8 +40,6 @@
       width: 100%;
       background-color:#F2EDE4;  
   }
-  
-  
   .catalog_pdf_icon-container{
       margin-left: 50px;
       display: flex;
@@ -58,16 +48,12 @@
       height: 50%;
       opacity: 0.95px;
   }
-  
   .pd_iframe{
       width: 900px; 
       height: 410px; 
       margin-left: 30%;
   }
-  
   /*------End_ catalog_pdf_row1-col-2-------*/
-  
-  
   /*---- Col1 Row1 container ---- */
   .row1-col-1{
       padding-left: 5px;
@@ -78,34 +64,26 @@
       color: #F7F3ED;
       
   }
-  
   .row1-col-1 a{
       text-decoration: none;
       color: #F7F3ED;
   }
-  
   .row1-col-1 a:hover{
      text-decoration: none;
       color: gold;
   }
-  
   /*---- End- Row1 Col1 container --- */
-  
-  
   /*---- Col1 Row2 container ---- */
-  
   .row1-col-2{
       margin-left: 20.5px;
       background-color: #D6D9C5;
       padding-left: 2px;
       padding-right: 2px;
   }
-  
   .row1-col-2 a{
       text-decoration: none;
       color: #F7F3ED;  
   }
-  
   .icon-container{
       display: flex;
       flex-direction: row;
@@ -115,10 +93,7 @@
       height: 80%;
       background-color: #9FA685; 
   }
-  
-  
   /*-- Row2 Col1 Accounts-container --*/
-  
   .icon-containerAccounts{
       display: flex;
       flex-direction: row;
@@ -128,7 +103,6 @@
       height: 60%;
       background-color: #F7F3ED;
   }
-  
   .myScheduler_icon-container{
       display: flex;
       flex-direction: row;
@@ -138,7 +112,6 @@
       height: 60%;
       background-color: #B7B4B0; 
   }
-  
   .catalog_icon-container{
       display: flex;
       flex-direction: row;
@@ -149,8 +122,6 @@
       
       background-color: #F7F3ED;
   }
-  
-  
   .catalog_container{
       width: 980px;
       
@@ -165,7 +136,6 @@
       overflow: scroll;
       border-radius: 10px;
   }
-  
   .catalog_box{
       border-radius: .5px;
       background-color: #9FA685;
@@ -175,19 +145,18 @@
       border: 1px solid black;
     
   }
-  
   /*- Row2 Col1 Accounts-container -- */
-  
   #blue{
        
       background-color: #8FBF65;
       color: white;
       margin-top: 100px;
-      margin-right: 10px;
       width: 60%;
       height: 40%;
+      margin-right: auto;
+      margin-left: auto;
+      max-width: 400px;
   }
-  
   #gray{
      
       background-color: #85898C;
@@ -195,40 +164,41 @@
       width: 60%;
       height: 40%;
       margin-top: 100px;
-      margin-right: 10px;
+      margin-right: auto;
+      margin-left: 10px;
+      max-width: 400px;
   }
-  
   #cornflowerblue{
-  
       background-color: #B4C4D9;
       color: white;
       width: 60%;
       height: 40%;
       margin-top: 100px;
       margin-right: 10px;
+      margin-left: auto;
+      max-width: 400px;
   }
-  
   #orange{
        background-color: #F25757;
        color: white;
        width: 60%;
        height: 40%;
        margin-top: 100px;
+       margin-right: auto;
+       margin-left: auto;
+       max-width: 400px;
   }
-  
   #imgContainer{
       background-color: #3B403C;
       color: black;
       width: 100%; 
       height: 25%;
       padding-left: 20px;
-      padding-bottom: 20px;
-      
+      padding-bottom: 20px;      
   }
   #log{
       color: black;
   }
-  
   img{
       float: left;
       box-shadow: 3px 3px 3px #F7F3ED;
@@ -240,8 +210,6 @@
       
   }
   /*--- End-- Row2 Col1 container --- */
-  
-  
   /*---- Button Account Form ---- */
   .btn_account_form_container1{
           border: .1px solid #3B403C;
@@ -255,7 +223,6 @@
           height: 75px;
           border-radius: 7px;
   }
-  
   .btn_account_form_container2{
          border: .1px solid #3B403C;
           margin-left: 60.9px;
@@ -274,7 +241,6 @@
   .btn_account_form_container1:hover {
           background-color: gold;
         }
-  
   .account_signInform_container{
           padding-top: 10px;
           margin-top: 12px;
@@ -301,18 +267,13 @@
           border-radius: 7px;
          
   }
-  
   label{
       padding: 10px;
   }
-  
   input{
       padding: 5px; 
   }
-  
   /*---- End- Account Form ---- */
-  
-  
   /*---- Start-of Adv Modal  ---- */
   .advModalBckg{
       display: none; /* Hidden by default */
@@ -329,8 +290,6 @@
       height: 60%;
       color:black; 
   }
-  
-  
   .adv_Modal_content {
           width: 550px;
           height: 520px;
@@ -344,9 +303,7 @@
           right: 50%;
           top: 100px;
          
-  
         }
-  
   .advClose {
           margin-top:0;
           float: right;
@@ -360,14 +317,11 @@
   .advClose:hover {
           background-color: gold;
   }
-  
-  
   .adv_option {
       display: flex;
       flex-direction: row;  
   }
   /*---- End-of Adv Modal  ---- */
-  
   /*---- Sheduler Form ---- */
   .scheduler_form_container{
          
@@ -377,10 +331,7 @@
           height: 30%;
           color: black;
   }
-  
-  
   /*---- End- Sheduler Form ---- */
-  
   .row1-col-3{
       margin-left: 20px;
       width: 55%;
@@ -390,15 +341,9 @@
       padding-left: 15px;
       color: whitesmoke;
   }
-  
      
-  
-  
   /*-------------------Modal---------------------*/
-  
   /*-------Start myScheduler_container-----------*/
-  
-  
   .myScheduler_container{
           padding-top: 10px;
           margin-top: 12px;
@@ -413,7 +358,6 @@
           box-shadow: 3px 3px 3px #3B403C;
          
   }
-  
   .myScheduler_container1{
       margin-top: 10px;
       margin-left: 10px;
@@ -430,16 +374,12 @@
           overflow: scroll;
           height: 80%;   
   }
-  
-  
   .myScheduler_grid-box {
       border: 2px solid #F7F3ED;
       padding-bottom: 10px;
       margin-bottom: 2px;
       margin-left: 2px;
   }
-  
-  
   /*----End myScheduler_container--------------*/
   .account_catalog_box{
       margin-left: 50px;
@@ -453,30 +393,14 @@
       height: 50%;
       border: 6px dotted gray;
   }
-  
-  
-  
-  
-  
-  
-  
-  
   .footer-container{
       
        width: auto;
        height: 50px;
        background-color: #3B403C;
-  
        color: white;
   }
-  
-  
-  
-  
-  
-  
   @media only screen and (max-width:790px ){
-  
   .wrapper{
       width: auto;
       height: auto;
@@ -502,14 +426,12 @@
       text-align: center;
       font-size: 30px; 
   }
-  
   .mainContainer{ 
       display: flex;
       flex-direction: row;
       width: 100%;
       background-color:#9FA685;  
   }
-  
   .row1-col-2{
       background-color: #D6D9C5;
       margin-left: 7px;
@@ -520,7 +442,6 @@
       text-decoration: none;
       color: #F7F3ED;  
   }
-  
   .icon-container{
       display: grid;
       grid-template-columns:  auto auto;
@@ -529,8 +450,6 @@
       height: 60%;  
       width: 60%; 
   }
-  
-  
   #blue{
       box-shadow: 2px 2px 3px #3B403C;
       background-color: #8FBF65;
@@ -541,7 +460,6 @@
       width: 80%;
       height: inherit;
   }
-  
   #gray{
       box-shadow: 2px 2px 3px #3B403C;
       background-color: #85898C;
@@ -552,7 +470,6 @@
       width: 80%;
       height: inherit;
   }
-  
   #cornflowerblue{
       box-shadow: 2px 2px 3px #3B403C;
       background-color: #B4C4D9;
@@ -564,7 +481,6 @@
       width: 80%;
       height: 70%;
   }
-  
   #orange{
       box-shadow: 2px 2px 3px #3B403C;
       background-color: #F25757;
@@ -575,7 +491,6 @@
       width: 90%;
       height: 73%;
   }
-  
   #imgContainer{
       background-color: #3B403C;
       color: black;
@@ -588,7 +503,6 @@
   #log{
       color: black;
   }
-  
   img{
       float: left;
       box-shadow: 3px 3px 3px #F7F3ED;
@@ -603,15 +517,15 @@
   #new_accounts{
           color: black;
       }
-
+      
+      
+      
       
    .footer-container{
        width: auto;
        height: 50px;
        background-color: #3B403C;
-  
        color: white;
   }
       
   }
-  

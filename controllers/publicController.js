@@ -34,7 +34,7 @@ module.exports.login_get = (req, res) => {
 module.exports.logout_get = (req, res) => {
     res.cookie('user', '', { maxAge: 1 });
     res.cookie('admin', '', { maxAge: 1 });
-    res.redirect('/', {title: 'Home'});
+    res.redirect('/');
 };
 
 module.exports.catalog_get = (req, res) => {
