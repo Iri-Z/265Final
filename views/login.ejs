@@ -3,25 +3,63 @@
 <%- include("./partials/nav.ejs") %>
 
 <div class="row1-col-2">
-    <p>Login Page</p>
+        
+    <p style=" padding-left: 11px; ">LOG IN</p>
     <hr>
-    <!-- row1-col-2 -->
     <div class="icon-container">
-
-        <div id="login" style="margin-left: auto; margin-right: auto;">
-            <form id="loginForm">
-                <h2>Log In</h2>
-                <label for="username">Username</label>
-                <input type="text" name="username"/>
-                <div class="formError" id="username error"></div><br>
-                <label for="password">Password</label>
-                <input type="password" name="password"/>
-                <div class="formError" id="password error"></div><br>
-                <button>Log In</button>
-            </form>
-            </div>
+        <div class="account_signInform_container" style="word-wrap: normal;">
+            <h2> Description: </h2>
+            <hr>
+            <p> --|   Log into your account.</p>
+            <p> --|   Create a new account.</p>
+               
+            <!-- account_signInform_container -->
         </div>
-
+           
+    <hr>
+<!-- ------------------------------------------------------- -->  
+                
+<div class="log_In_form" style="background-color:#D6D9C5; width: 400px;">
+                
+   <form id="log_In">
+        <h2>Log In: </h2>
+       
+        <label for="username">Username</label>
+        <input type="text" name="username"/>
+        <div class="formError" id="username error"></div><br>
+       
+        <label for="password">Password</label>
+        <input type="password" name="password"/>
+        <div class="formError" id="password error"></div><br>
+        
+        <hr>
+        <button>Log In</button>
+       
+           
+        <button type="submit" style="text-decoration: none;" >
+        <a id="new_accounts" href="/signup" style="text-decoration: none; color: black;">New? Create An Account </a>
+        </button>
+        
+       
+<!-- Account Form -->
+    </form>
+<!-- account_signInform_container -->
+</div>
+           
+<hr>
+<!-- ------------------------------------------------------- -->  
+                
+<div class="account_signInform_container">
+    <!-- account_signInform_container -->
+</div>
+           
+           
+<!-- icon-container -->
+</div>
+<br><br><hr>
+       
+       
+<!-- row1-col-2 -->
 </div>
 
 <%- include("./partials/favs.ejs") %>
@@ -29,7 +67,7 @@
 <%- include("./partials/footer.ejs") %>
 
 <script>
-    const loginForm = document.getElementById('loginForm');
+    const loginForm = document.getElementById('log_In');
     const usernameError = document.getElementById('username error');
     const passwordError = document.getElementById('password error');
     

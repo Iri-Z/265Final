@@ -3,36 +3,71 @@
 <%- include("./partials/nav.ejs") %>
 
 <div class="row1-col-2">
-    <p>Sign Up page</p>
+        
+    <p style=" padding-left: 11px; ">SIGN UP</p>
     <hr>
-    <!-- row1-col-2 -->
     <div class="icon-container">
-        <div id="signup" style="margin-left: auto; margin-right: auto;">
-            <form id="signupForm">
-               <h2>Sign Up</h2>
-               <label for="fName">First Name: </label>
-               <input type="text" name="fName" required>
-               <div class="formError" id="fName error"></div> <br>
-               <label for="lName">Last Name: </label>
-               <input type="text" name="lName" required>
-               <div class="formError" id="lName error"></div> <br>
-               <label for="email">Email: </label>
-               <input type="text" name="email" required>
-               <div class="formError" id="email error"></div> <br>
-               <label for="phone">Phone Number: </label>
-               <input type="text" name="phone">
-               <div class="formError" id="phone error"></div> <br>
-               <label for="username">Username:</label>
-               <input type="text" name="username" required />
-               <div class="formError" id="username error"></div> <br>
-               <label for="password">Password:</label>
-               <input type="password" name="password" required />
-               <div class="formError" id="password error"></div><br>
-               <button>Sign Up</button>
-            </form>
+        <div class="account_signInform_container" style="word-wrap: normal;">
+            <h2> Description: </h2>
+            <hr>
+            <p> --|   Log into your account.</p>
+            <p> --|   Create a new account.</p>
+                   
+            <!-- account_signInform_container -->
         </div>
-    </div>
+               
+    <hr>
+<!-- ------------------------------------------------------- -->  
+                    
+    <div class="log_In_form" style="background-color:#D6D9C5; width: 400px;">
+                    
+        <form id="signupForm">
+            <h2>Sign Up</h2>
+            <label for="fName">First Name: </label>
+            <input type="text" name="fName" required>
+            <div class="formError" id="fName error"></div> <br>
+            
+            <label for="lName">Last Name: </label>
+            <input type="text" name="lName" required>
+            <div class="formError" id="lName error"></div> <br>
+            
+            <label for="email">Email: </label>
+            <input type="text" name="email" required>
+            <div class="formError" id="email error"></div> <br>
+            
+            <label for="phone">Phone Number: </label>
+            <input type="text" name="phone">
+            <div class="formError" id="phone error"></div> <br>
+            
+            <label for="username">Username:</label>
+            <input type="text" name="username" required />
+            <div class="formError" id="username error"></div> <br>
+            
+            <label for="password">Password:</label>
+            <input type="password" name="password" required />
+            <div class="formError" id="password error"></div><br>
+            
+            <button>Sign Up</button>
 
+    <!-- Account Form -->
+        </form>
+    <!-- account_signInform_container -->
+    </div>
+               
+    <hr>
+<!-- ------------------------------------------------------- -->  
+                    
+    <div class="account_signInform_container">
+        <!-- account_signInform_container -->
+    </div>
+               
+               
+    <!-- icon-container -->
+    </div>
+    <br><br><hr>
+           
+           
+<!-- row1-col-2 -->
 </div>
 
 <%- include("./partials/favs.ejs") %>

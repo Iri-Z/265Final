@@ -3,31 +3,86 @@
 <%- include("./partials/nav.ejs") %>
 
 <div class="row1-col-2">
-    <!-- row1-col-2 -->
-    <p>Plan Detail Page</p>
-    <hr>
-    <div class="icon-container">
-        <p><%=numDays%> <%=numMeals%></p>
-        <% if (recipes.length > 0) { %>
-            <% recipes.forEach(recipe => { %>
-                    <div class="catalog_box">
+        
+    <p style = "padding-left: 10px;">MY SCHEDULER</p>
+    <hr><hr>
+                   
+    <div class="myScheduler_icon-container">        
+        <div class="myScheduler_container">
+            <h2> My Scheduler:</h2>
+            <hr><br>
+            <label for="accounts_numOfDays"> Number Of Days:  <scan style="color:blue;"> <%=numDays%></scan></label> 
+               
+            <br><br>
+            <label for="accounts_numOfMeals"> Number Of Meals: <scan style="color:blue;"> <%=numMeals%></scan></label> 
+ 
+            <br><br>
+            <label for="accounts_numOfMeals">Included Meal Types:  
+            <scan style="color: blue; display: grid;">Lunch <br> Breakfast <br> Dinner</scan></label>
+            <hr>
+            <a href="scheduler.html"><button id="update">Edit</button></a>
+                <!-- account_signInform_container -->
+        </div>
+               
+        <hr>
+<!-- ------------------------------------------------------- -->  
+                    
+       <div class="myScheduler_container1">
+        <div class="myScheduler_header">
+            <h1>My Meal Choices  </h1> 
+            <a href="/account/list/<%=planId %>">Click Here for the Ingredient List</a>
+        </div> 
+        <hr style="width:775px;margin-left: 0;"> 
+       <% const str = 'auto '; %>
+       <div class="myScheduler_grid-container" style="grid-template-rows: <%=str.repeat(numMeals+1) %>;" >
+       
+           <% if (recipes.length > 0) { 
+            let i =0; 
+            let j = 1; %>
+            <h2>Day <%=j%></h2>
+               <% recipes.forEach(recipe => { %>
+                    <%if (i < numMeals) {  %>
+                        <!--myScheduler_grid-box Middle meals-->
+                        <div class="myScheduler_grid-box"> 
                         <h3><%= recipe.name %></h3>
                         <p><%= recipe.description %></p>
-                        <a href ="/catalog/<%=recipe.id %>" style="color: aliceblue; text-decoration: underline;">View More</a>
-                    </div>
-            <% }) %>
-                    <a href="/account/list/<%=planId %>">Plan Ingredient List</a>
-    
-                    <div class="deletePlan">
-                        <form id="deletePlanForm" data-doc="<%=planId %>" >
-                            <input type="button" value="Delete Plan" class='deletePlanBtn' data-doc="<%= planId %>">
-                        </form>
-                    </div>
-    
-        <% } else { %>
-            <p>There are no recipes to display...</p>
-        <% } %>
+                        <a href ="/catalog/<%=recipe.id %>" style="color: aliceblue; text-decoration: underline;">View More</a>  
+                        <!--myScheduler_grid-box-->
+                        </div>
+                    <% i += 1; } else { j+= 1; i = 0; %>
+                        <h2>Day <%=j%></h2>
+                        <!--myScheduler_grid-box Middle meals-->
+                        <div class="myScheduler_grid-box"> 
+                        <h3><%= recipe.name %></h3>
+                        <p><%= recipe.description %></p>
+                        <a href ="/catalog/<%=recipe.id %>" style="color: aliceblue; text-decoration: underline;">View More</a>  
+                        <!--myScheduler_grid-box-->
+                        </div>
+                    <% i += 1;} %>
+               <% }) %>
+       
+           <% } else { %>
+               <p>There are no recipes to display...</p>
+           <% } %>  
+
+        <!--myScheduler_grid-container-->
+        </div>
+ 
+       <!--myScheduler_container1 -->
+       </div>
+   
+    <!-- icon-container -->
     </div>
+       
+    <div class="deletePlan">
+        <form id="deletePlanForm" data-doc="<%=planId %>" >
+            <input type="button" value="Delete Plan" class='deletePlanBtn' data-doc="<%= planId %>">
+        </form>
+    </div>
+        
+    <br><br><hr>
+
+<!-- row1-col-2 -->
 </div>
 
 <%- include("./partials/favs.ejs") %>
