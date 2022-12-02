@@ -3,10 +3,16 @@
 <%- include("./partials/nav.ejs") %>
 
 <div class="row1-col-2">
-    <p style = "padding-left: 10px;">ERROR 404: </p>
+    <p style = "padding-left: 10px;">ERROR 404 </p>
 <hr>           
     <div class="icon-container">
-        <p>Error 404: Page Not Found</p>
+        <div class="scheduler_form_container" style="border-color: red;">
+            <p>Error 404: Page Not Found</p>
+            <% if (message) { %>
+                <hr>
+                <p><%=message%></p>
+            <% } %>
+        </div>
     </div>
     <br><br><hr>
     <!-- row1-col-2 -->

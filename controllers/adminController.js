@@ -1,9 +1,7 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 
-
 //handle Admin specific errors 
-
 const handleErrors = (err) => {
 };
 

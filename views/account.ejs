@@ -3,61 +3,87 @@
 <%- include("./partials/nav.ejs") %>
 
 <div class="row1-col-2">
-    <p style = "padding-left: 10px;">ACCOUNTS</p>
-<hr>           
-        <div class="icon-container">
-         
-
-   <form action="name_Of_My_PHP_File.php" method="post">
+        
+    <p style=" padding-left: 11px; ">ACCOUNT</p>
+    <hr>
+    <div class="icon-container">
+        <div class="account_signInform_container" style="word-wrap: normal;">
+            <h2> Description: </h2>
+            <hr>
+            <p> --|   Log into your account.</p>
+            <p> --|   Create a new account.</p>
+                   
+            <!-- account_signInform_container -->
+        </div>
+               
+    <hr>
+<!-- ------------------------------------------------------- -->  
+                    
+    <div class="log_In_form" style="background-color:#D6D9C5; width: 400px;">
+	
+	<form>
        <div class="account_form_container">
         <h3>Account Information</h3>
         <div style="display: flex">
-            Account ID: <p><%=User.id%></p>
+            <p><span style="font-size: large; font-weight: bold; margin-left: 15px;">Account ID:</span><span class="tab"></span> <%=User.id%></p>
         </div>
 
         <div style="display: flex">
-            First Name: <p><%=User.fName%></p><br>
+            <p><span style="font-size: large; font-weight: bold; margin-left: 15px;">First Name:</span><span class="tab"></span> <%=User.fName%></p><br>
         </div>
         <input  id="fName" type="hidden" required placeholder="Updated First Name">
 
         <div style="display: flex">
-            Last Name: <p><%=User.lName%></p><br>
+            <p><span style="font-size: large; font-weight: bold; margin-left: 15px;">Last Name:</span><span class="tab"></span> <%=User.lName%></p><br>
         </div>
         <input id="lName" type="hidden" required placeholder="Updated Last Name">
 
         <div style="display: flex">
-            Email: <p><%=User.email%></p><br>
+            <p><span style="font-size: large; font-weight: bold; margin-left: 15px;">Email:</span><span class="tab"></span> <%=User.email%></p><br>
         </div>
         <input id="email" type="hidden" required placeholder="Updated Email">
 
         <div style="display: flex">
-            Username: <p><%=User.username%></p><br>
+            <p><span style="font-size: large; font-weight: bold; margin-left: 15px;">Username:</span><span class="tab"></span> <%=User.username%></p><br>
         </div>
         <input id="username" type="hidden" required placeholder="Updated Username"> 
 
         <div style="display: flex">
-            Password: <p>Hidden Value</p>
+            <p><span style="font-size: large; font-weight: bold; margin-left: 15px;">Password:</span><span class="tab"></span> Hidden Value</p>
         </div>
         <input id="password" type="hidden" required placeholder="Updated Password">
         <br>
         <br><br>
         <hr>
-        <button id="edit">Edit</button>
+        <button id="edit" style="float: left; margin-left: 20px;">Edit</button>
         <button style="visibility: hidden;">Update</button>
         <button style="visibility: hidden;" style="text-decoration: underline; color: blue;">Reset</button>
         <br>
            
-        <a href="/account/plans">View Saved Meal Plans</a>
-           
            <!-- Account Container Form -->
            </div>
-<!-- Account Form -->
-</form>
-            
-             <!-- icon-container -->
-           </div>
-<br><br><hr>
-       <!-- row1-col-2 -->
+		<!-- Account Form -->
+		</form>
+                    
+        
+    <!-- account_signInform_container -->
+    </div>
+               
+    <hr>
+<!-- ------------------------------------------------------- -->  
+                    
+    <div class="account_signInform_container">
+        <!-- account_signInform_container -->
+        <a href="/account/plans" style="color: black;">View Saved Meal Plans</a>
+    </div>
+               
+               
+    <!-- icon-container -->
+    </div>
+    <br><br><hr>
+           
+           
+<!-- row1-col-2 -->
 </div>
 
 <%- include("./partials/favs.ejs") %>
@@ -65,5 +91,5 @@
 <%- include("./partials/footer.ejs") %>
 
 <script>
-    
+
 </script>

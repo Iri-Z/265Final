@@ -5,8 +5,7 @@
 <div class="row1-col-2">
         
     <p style = "padding-left: 10px;">MY SCHEDULER</p>
-    <hr><hr>
-                   
+    <hr>             
     <div class="myScheduler_icon-container">        
         <div class="myScheduler_container">
             <h2> My Scheduler:</h2>
@@ -76,7 +75,7 @@
        
     <div class="deletePlan">
         <form id="deletePlanForm" data-doc="<%=planId %>" >
-            <input type="button" value="Delete Plan" class='deletePlanBtn' data-doc="<%= planId %>">
+            <input type="button" value="Delete Plan" class='deletePlanBtn' data-doc="<%= planId %>" style="float:right; margin-right: 35px;">
         </form>
     </div>
         
@@ -93,7 +92,12 @@
     const trashcan = document.querySelector('input.deletePlanBtn');
     trashcan.addEventListener('click', (e) => {
         const endpoint = `/account/plans/${trashcan.dataset.doc}`;
-
+            fetch(endpoint, {
+              method: 'DELETE',
+            })
+           .then((response) => response.json())
+           .then((data) => window.location.href = data.redirect)
+           .catch((err) => console.log(err));
     });
 
 </script>

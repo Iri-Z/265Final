@@ -44,7 +44,7 @@ app.use(publicRoutes);
 
 //LAST
 app.use((req, res) => {
-    res.status(404).render('404', { title: "404"});
+    res.status(404).render('404', { message: null, title: "404"});
   
   });
 

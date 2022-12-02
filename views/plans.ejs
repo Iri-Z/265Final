@@ -2,14 +2,20 @@
 
 <%- include("./partials/nav.ejs") %>
 
-<div class="row1-col-2">
-    <p>Meal Plan page</p>
-    <hr>
-    <!-- row1-col-2 -->
-    <div class="icon-container">
-        <% if (plans.length > 0) { %>
-            <% plans.forEach(plan => { %>
-                    <div class="catalog_box">
+<div class="row1-col-2">   
+    <p style = "padding-left: 10px;">SAVED PLANS</p>
+	<hr>  
+	<div class="myScheduler_icon-container">                     
+        <div class="myPlan_container1">
+        
+            <h1>Saved Plans</h1>
+            <hr>  
+        
+            <div class="myPlan_grid-container">
+			
+				<% if (plans.length > 0) { %>
+				<% plans.forEach(plan => { %>
+                    <div class="myPlan_grid-box">
                         <h3><%= plan.id %></h3>
                         <p><%= plan.numDays %></p>
                         <p><%= plan.numMeals %></p>
@@ -17,10 +23,17 @@
                     </div>
             <% }) %>
         <% } else { %>
-            <p>There are no plans to display...</p>
+            <p>You don't have any saved plans.</p>
         <% } %>
-
-    </div>
+            
+            <!--myPlan_grid-container-->
+            </div>
+        <!--myPlan_container1 -->
+        </div>   
+    <!-- icon-container -->
+    </div>         
+<br><br><hr>        
+<!-- row1-col-2 -->
 </div>
 
 <%- include("./partials/favs.ejs") %>

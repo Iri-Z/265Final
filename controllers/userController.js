@@ -3,6 +3,7 @@ const User = require('../models/User').User;
 const Recipe = require('../models/Recipe').Recipe;
 const { Plan, PlanRecipe } = require('../models/MealPlan');
 const jwt = require('jsonwebtoken');
+const { result } = require('lodash');
 const Op = Sequelize.Op;
 
 //handle User specific page errors
@@ -38,14 +39,24 @@ module.exports.plans_get = async (req, res) => {
 
 module.exports.plans_entry_get = async (req, res) => {
     const id = req.params.id;
-    let plan = await Plan.findOne({where: {id: id}});
-    var numDays = plan.numDays;
-    var numMeals = plan.numMeals;
+    var numDays;
+    var numMeals;
+    await Plan.findOne({where: {id: id}})
+        .then((result) => {
+            if (result) {
+                numDays = result.numDays;
+                numMeals = result.numMeals;
+            }
+        });
     await PlanRecipe.findAll({where: {planId: id}})
     .then(async (result) => {
         await Plan.findRecipes(result)
         .then((meals) => {
-            res.render('planDetails', { recipes: meals, numDays, numMeals, planId: id, title: 'Plan '+id });
+            if(meals.length > 0){
+                res.render('planDetails', { recipes: meals, numDays, numMeals, planId: id, title: 'Plan '+id });
+            } else {
+                res.status(404).render('404', { message: "The meal plan you are trying to find does not exist. It may have been deleted", title: "404"});
+            }
         })
         .catch((err) => {
             console.log(err);
@@ -190,6 +201,24 @@ module.exports.mealplanner_post = async (req, res) => {
 module.exports.plans_post = (req, res) => {
     //Make edits to a meal Plan and save or discard them
 };
+
+module.exports.plans_delete = async (req, res) => {
+    const id = req.params.id;
+
+    await PlanRecipe.destroy({where: {planId: id} })
+        .then(Plan.destroy({where: {id: id}}))
+        .then((result) => {
+            res.json({redirect: '/account/plans'})
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+
+};
+
+module.exports.delete_redirect = (req, res) => {
+    res.json({ redirect: '/account/plans' });
+}
 
 module.exports.plans_entry_post = (req, res) => {
     //Make edits to a meal Plan and save or discard them

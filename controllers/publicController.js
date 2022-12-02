@@ -44,14 +44,26 @@ module.exports.catalog_get = (req, res) => {
     })
     .catch((err) => {
         console.log(errr);
-        res.redirect('/404', {title: '404'});
+        res.status(404).render('404', { message: null, title: "404"});
     });
 
 };
 
-module.exports.catalog_entry_get = (req, res) => {
+module.exports.catalog_entry_get = async (req, res) => {
     //Submit which recipe is being accessed to the page to display correct details
-    res.render('recipeDetails', {title: 'Recipe'});
+    const id = req.params.id;
+    console.log(id);
+    await Recipe.findOne({where: {id: id}})
+    .then((result) => {
+        if(result) {
+            res.render('recipeDetails', {title: `Recipe ${id}`});
+        } else {
+            res.status(404).render('404', { message: 'The recipe you are looking for does not exist', title: "404"});
+        }   
+    })
+    .catch((err) => {
+        res.status(404).render('404', { message: null, title: "404"});
+    }    );
 
 };
 

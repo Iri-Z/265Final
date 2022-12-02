@@ -18,5 +18,7 @@ router.post('/plans', userController.plans_post);
 //Particular Meal Plan
 router.get('/plans/:id', userController.plans_entry_get);
 router.post('/plans/:id', userController.plans_entry_post);
+router.delete('/plans/:id',  userController.plans_delete);
+router.delete('/', userController.delete_redirect);
 
 module.exports = router;
