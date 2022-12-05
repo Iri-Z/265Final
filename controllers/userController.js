@@ -67,6 +67,11 @@ module.exports.plans_entry_get = async (req, res) => {
     });
 };
 
+module.exports.list_entry_get = (req, res) => {
+    const id = req.params.id;
+    res.render('list', { title: 'List for Plan '+id });
+};
+
 //POST Requests
 //Editing account info
 module.exports.account_post = (req, res) => {
@@ -222,4 +227,8 @@ module.exports.delete_redirect = (req, res) => {
 
 module.exports.plans_entry_post = (req, res) => {
     //Make edits to a meal Plan and save or discard them
+};
+
+module.exports.list_entry_post = (req, res) => {
+    //Make edits to an ingreidient list
 };

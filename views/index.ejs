@@ -4,16 +4,21 @@
 
 <div class="row1-col-2">
         
-    <p style=" padding-left: 11px; ">HOME</p>
+    <p style="padding-left: 11px; ">HOME</p>
    <hr>
    <div class="icon-container">
+    <% const catalogText = 'Find our catalog of great recipes here!';
+       const plannerText = 'Create a new meal plan here';
+       const accountText = 'Account page';
+       const dashboardText = ''; %>
+
 
   <% if (user) { %>
       <!--If a general user is signed in this is their nav bar-->
     <div id="cornflowerblue"> 
       <a href="/catalog">
-      <p> CATALOG </p>
-      <p>Catalog are great for learni gnjkgkggkhgh ghgjg hg jgj  hdajd alhdlk alljdfafa </p>
+      <h3> CATALOG </h3>
+      <p><%=catalogText %></p>
       <div id="imgContainer">
         <img src ="images/catalog.png">
       </div>
@@ -21,8 +26,8 @@
    </div>
     <div id="gray">
       <a href="/account/mealplanner">
-        <p> MEAL PLANNER </p>
-        <p>Sceduler are great for learni gnjkgkggkhgh ghgjg hg jgj  hdajd alhdlk alljd </p>     
+        <h3> MEAL PLANNER </h3>
+        <p><%=plannerText %> </p>     
         <div id="imgContainer">
           <img src ="images/scheduler.png">
         </div>
@@ -30,8 +35,8 @@
     </div>    
     <div id="blue">
       <a href="/account/user/<%= user.id %>">
-        <p> ACCOUNT </p>
-        <p>Accounts are great for learni gnjkgkggkhgh ghgjg hg jgj  hdajd alhdlk alljd </p> 
+        <h3> ACCOUNT </h3>
+        <p><%=accountText %> </p> 
       <div id="imgContainer">
        <img src ="images/sign-in.png">
        </div>
@@ -42,8 +47,8 @@
       <!--If an admin is signed in this is their nav bar-->
     <div id="cornflowerblue" style="margin-left: 90px;"> 
         <a href="/catalog">
-        <p> CATALOG </p>
-        <p>Catalog are great for learni gnjkgkggkhgh ghgjg hg jgj  hdajd alhdlk alljdfafa </p>
+        <h3> CATALOG </h3>
+        <p><%=catalogText %> </p>
         <div id="imgContainer">
            <img src ="images/catalog.png">
         </div>
@@ -52,8 +57,8 @@
 
     <div id="orange" style="margin-right: 5%;">
       <a href="/admin/dashboard">
-      <p> DASHBOARD </p>    
-      <p>Dashboard are great for learni gnjkgkggkhgh ghgjg hg jgj  hdajd alhdlk alljd </p>
+      <h3> DASHBOARD </h3>    
+      <p><%= dashboardText %> </p>
         <div id="imgContainer">
           <img src ="images/admin-sys.png">
         </div>
@@ -63,23 +68,22 @@
       <!--If no one is signed in this is their nav bar-->
       <div id="cornflowerblue" style="margin-left: 90px;"> 
         <a href="/catalog">
-        <p> CATALOG </p>
-        <p>Catalog are great for learni gnjkgkggkhgh ghgjg hg jgj  hdajd alhdlk alljdfafa </p>
+        <h3> CATALOG </h3>
+        <p><%=catalogText %> </p>
         <div id="imgContainer">
            <img src ="images/catalog.png">
         </div>
         </a>
       </div>
       <div id="gray" style="margin-right: 5%;">
-        <a href="/testscheduler">
-          <p> SCHEDULER </p>
-          <p> Trial Scheduler to demo product??? </p>     
+        <a href="/example">
+          <h3> MEAL PLANNER</h3>
+          <p> Trial Example <%= plannerText %> </p>     
           <div id="imgContainer">
             <img src ="images/scheduler.png">
           </div>
         </a>
       </div> 
-
       
   <% } %>        
         <!-- icon-container -->

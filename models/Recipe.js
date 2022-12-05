@@ -49,7 +49,7 @@ const Recipe = db.define("recipe", {
     tableName: 'recipes'
  });
 
- 
+ //Currently unused table- left here for future use
  const RecipeInstruction = db.define("recipeInstruction", {
     stepIndex: {
       type: DataTypes.INTEGER,
@@ -110,6 +110,7 @@ const Recipe = db.define("recipe", {
  //RecipeType.sync();
  //Recipe.sync();
  //RecipeInstruction.sync();
+ //RecipeIngredients.sync();
 
 //Export models
-module.exports = { RecipeType, Recipe, RecipeInstruction };
+module.exports = { RecipeType, Recipe, RecipeInstruction, RecipeIngredients };

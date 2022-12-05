@@ -9,7 +9,7 @@ const Ingredient = db.define("ingredients", {
     },
     imageName: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
     },
     shelfStable: {
         type: DataTypes.BOOLEAN,
