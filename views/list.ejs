@@ -5,9 +5,19 @@
 <div class="row1-col-2">
     <p>GROCERY LIST</p>
     <hr>
-    <!-- row1-col-2 -->
+    <!-- row1-col-2 --> 
     <div class="icon-container">
-        
+        <% if (list.length > 0) { %>
+            <ul>
+                <% list.forEach((ingredient, index) => { console.log(names[index]);%>
+                    <li>
+                        <p> <%=names[index]%> :<span></span><%= ingredient.quantity %>, <%= ingredient.qualifier%> </p>
+                    </li>
+                <% }) %>
+        <% } else { %>
+            <p>There are no ingredients to display...</p>
+        <% } %>
+            </ul>
     </div>
 </div>
 

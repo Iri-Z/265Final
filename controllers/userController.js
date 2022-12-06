@@ -4,6 +4,7 @@ const Recipe = require('../models/Recipe').Recipe;
 const { Plan, PlanRecipe } = require('../models/MealPlan');
 const jwt = require('jsonwebtoken');
 const { result } = require('lodash');
+const { RecipeIngredients } = require('../models/Recipe');
 const Op = Sequelize.Op;
 
 //handle User specific page errors
@@ -67,9 +68,28 @@ module.exports.plans_entry_get = async (req, res) => {
     });
 };
 
-module.exports.list_entry_get = (req, res) => {
-    const id = req.params.id;
-    res.render('list', { title: 'List for Plan '+id });
+module.exports.list_entry_get = async (req, res) => {
+    const planId = req.params.id;
+    await PlanRecipe.findAll({where: {planId: planId}})
+    .then(async (result) => {
+        await Plan.findRecipes(result)
+        .then(async (meals) => {
+            await Plan.findIngredients(meals)
+            .then((result) => {
+                if (result) {
+                    res.render('list', { list: result[0], names:result[1], title: 'List for Plan '+ planId });
+                } else{
+                    res.status(404).render('404', { message: "The list you are trying to find does not exist. It may have been deleted", title: "404"});
+                }   
+            })
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+    })
+    .catch((err) => {
+        console.log(err)
+    });
 };
 
 //POST Requests
@@ -189,7 +209,7 @@ module.exports.mealplanner_post = async (req, res) => {
     
             }
         }
-        console.log(mealsPicked);
+        //console.log(mealsPicked);
         //Send to specific meal plan page
         res.status(201).json({ plan: planId });
         // Hold in Limbo until User decides to save the meal plan (maybe add)

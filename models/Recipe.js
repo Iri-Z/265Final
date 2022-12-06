@@ -31,6 +31,7 @@ const Recipe = db.define("recipe", {
         type: DataTypes.INTEGER,
         allowNull: false
     },
+    //Necessary column?
     imageName: {
         type: DataTypes.STRING,
         allowNull: true

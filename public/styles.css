@@ -509,6 +509,16 @@
       height: 60%;  
       width: 60%; 
   }
+  .list-container{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    word-wrap:normal;
+    width: 980px;
+    height: 70%;
+    background-color: #B7B4B0; 
+    margin: 10px;
+  }
   #blue{
       box-shadow: 2px 2px 3px #3B403C;
       background-color: #8FBF65;

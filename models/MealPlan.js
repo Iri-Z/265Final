@@ -1,7 +1,8 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const db = require("../config/database");
 const { User, AuthLevel } = require('./User');
-const { RecipeType, Recipe, RecipeInstruction } = require('./Recipe');
+const { RecipeType, Recipe, RecipeInstruction, RecipeIngredients } = require('./Recipe');
+const { Ingredient } = require("./Ingredient");
 
 //Defining models (tables in database that can be accessed)
 
@@ -65,7 +66,23 @@ Plan.findRecipes = async function (recipes) {
         meals.push(meal); 
     }
     return meals;
-}
+};
+
+ Plan.findIngredients = async function (recipes) {
+    let ingredientList = [];
+    let ingredientNames = [];
+    for (recipe of recipes) {
+        let ingredients = await RecipeIngredients.findAll({where: {recipeId: recipe.id}});
+        for (ingredient of ingredients) {
+            await Ingredient.findOne({where: {id: ingredient.ingredientId}})
+            .then((result) => {
+                ingredientNames.push(result.name);
+                ingredientList.push(ingredient);
+            })
+        }
+    }
+    return [ingredientList, ingredientNames];
+ };
 
  //SYNC
  //Plan.sync();
