@@ -2,10 +2,13 @@
     <h3>Favorites</h3>
     <hr>
     <!--For loop - look up user's favorited recipes and display-->
-    <p>Additional 1</p>
-     <p>Additional 2</p>
-     <p>Additional 3</p>
-     <p>Additional 4</p>
-     <p>Additional 5</p>
+    <ul>
+        <% if(favs.length > 0) { 
+            favNames.forEach(item => { %>
+                <li><%= item %></li>
+            <% })} else { %>
+                <li>You haven't favorited anything yet</li>
+            <% } %>
+    </ul>
      <!-- row1-col-3 -->
 </div>

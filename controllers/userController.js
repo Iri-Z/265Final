@@ -235,7 +235,11 @@ module.exports.list_entry_post = (req, res) => {
 
 module.exports.add_fav_post = async (req, res) => {
     const { recipeId, userId } = req.body;
-    await FavoriteRecipes.create({recipeId, userId});
+    try {
+        await FavoriteRecipes.create({recipeId, userId});
+    } catch (err) {
+        console.log(err);
+    }
 };
 
 //DELETE requests
@@ -263,5 +267,4 @@ module.exports.delete_fav = async (req, res) => {
         .catch((err) => {
             console.log(err);
         });
-
 };

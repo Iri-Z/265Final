@@ -1,6 +1,7 @@
 const User = require('../models/User').User;
 const jwt = require('jsonwebtoken');
 const { result } = require('lodash');
+const { Recipe } = require('../models/Recipe');
 const FavoriteRecipes = require('../models/Recipe').FavoriteRecipes;
 
 //require user to be logged in
@@ -46,6 +47,7 @@ const checkUser = (req, res, next) => {
     const user = req.cookies.user;
     const admin = req.cookies.admin;
     let favs =[];
+    let favNames =[];
     if (user) {
         jwt.verify(user, 'sdev 265', async (err, decodedToken) => {
             if (err) {
@@ -53,15 +55,22 @@ const checkUser = (req, res, next) => {
                 res.locals.user = null;
                 res.locals.admin = null;
                 res.locals.favs = null;
+                res.locals.favNames = null;
                 next();
             }else {
-                let [user, favs] = await Promise.all([
+                let [user, favObjects] = await Promise.all([
                   User.findByPk(decodedToken.id),
-                  FavoriteRecipes.findAll({where: {userId: decodedToken}})
+                  FavoriteRecipes.findAll({ where: {userId: decodedToken.id}, attributes: ['recipeId']})
                 ]); 
+                for(let i = 0; i < favObjects.length; i++) {
+                  favs.push(favObjects[i].recipeId);
+                  await Recipe.findByPk(favObjects[i].recipeId)
+                    .then((result) => {favNames.push(result.name)});
+                }
                 res.locals.user = user;
                 res.locals.admin = null;
                 res.locals.favs = favs;
+                res.locals.favNames = favNames;
                 next();
             }
         });
@@ -73,12 +82,14 @@ const checkUser = (req, res, next) => {
           res.locals.user = null;
           res.locals.admin = null;
           res.locals.favs = null;
+          res.locals.favNames = null;
           next();
         } else {
           let admin = await User.findByPk(decodedToken.id);
           res.locals.user = null;
           res.locals.admin = admin;
           res.locals.favs = null;
+          res.locals.favNames = null;
           next();
         }
       })

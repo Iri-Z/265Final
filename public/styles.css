@@ -101,6 +101,9 @@
   .favoriteBtn{
     font-size:16px; 
   }
+  .favoriteBtnDelete{
+    font-size:16px; 
+  }
   /*-- Row2 Col1 Accounts-container --*/
   .icon-containerAccounts{
       display: flex;
@@ -532,10 +535,10 @@
     float: right;
   }
   .favoriteBtn{
-    font-size:16px;
-    padding: 0;
-    border: none;
-    background: none;   
+    font-size:16px;   
+  }
+  .favoriteBtnDelete{
+    font-size:16px; 
   }
   #blue{
       box-shadow: 2px 2px 3px #3B403C;
