@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const db = require("../config/database");
 const { User, AuthLevel } = require('./User');
-const { RecipeType, Recipe, RecipeInstruction, RecipeIngredients } = require('./Recipe');
+const { RecipeType, Recipe, RecipeInstruction, RecipeIngredients, FavoriteRecipes } = require('./Recipe');
 const { Ingredient } = require("./Ingredient");
 
 //Defining models (tables in database that can be accessed)

@@ -3,8 +3,7 @@ const User = require('../models/User').User;
 const Recipe = require('../models/Recipe').Recipe;
 const { Plan, PlanRecipe } = require('../models/MealPlan');
 const jwt = require('jsonwebtoken');
-const { result } = require('lodash');
-const { RecipeIngredients } = require('../models/Recipe');
+const FavoriteRecipes = require('../models/Recipe').FavoriteRecipes;
 const Op = Sequelize.Op;
 
 //handle User specific page errors
@@ -222,11 +221,24 @@ module.exports.mealplanner_post = async (req, res) => {
 
 };
 
-//These need to be clarified
 module.exports.plans_post = (req, res) => {
     //Make edits to a meal Plan and save or discard them
 };
 
+module.exports.plans_entry_post = (req, res) => {
+    //Make edits to a meal Plan and save or discard them
+};
+
+module.exports.list_entry_post = (req, res) => {
+    //Make edits to an ingreidient list
+};
+
+module.exports.add_fav_post = async (req, res) => {
+    const { recipeId, userId } = req.body;
+    await FavoriteRecipes.create({recipeId, userId});
+};
+
+//DELETE requests
 module.exports.plans_delete = async (req, res) => {
     const id = req.params.id;
 
@@ -243,12 +255,13 @@ module.exports.plans_delete = async (req, res) => {
 
 module.exports.delete_redirect = (req, res) => {
     res.json({ redirect: '/account/plans' });
-}
-
-module.exports.plans_entry_post = (req, res) => {
-    //Make edits to a meal Plan and save or discard them
 };
 
-module.exports.list_entry_post = (req, res) => {
-    //Make edits to an ingreidient list
+module.exports.delete_fav = async (req, res) => {
+    const { recipeId, userId } = req.body;
+    await FavoriteRecipes.destroy({where: {recipeId, userId} })
+        .catch((err) => {
+            console.log(err);
+        });
+
 };

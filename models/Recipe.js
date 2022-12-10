@@ -1,6 +1,7 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const db = require("../config/database");
 const { Ingredient, IngredientType } = require('./Ingredient');
+const { User, AuthLevel } = require('./User');
 
 //Defining models (tables in database that can be accessed)
 const RecipeType = db.define("recipeType", {
@@ -95,7 +96,28 @@ const Recipe = db.define("recipe", {
  {
     timestamps: false,
     tableName: 'recipeIngredients'
- })
+ });
+
+ const FavoriteRecipes = db.define("favoriteRecipe", {
+    recipeId: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: Recipe,
+            key: 'id'
+          }
+    },
+    userId: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: User,
+            key: 'id'
+          }
+    }
+ },
+ {
+    timestamps: false,
+    tableName: 'favoriteRecipes'
+ });
 
  //Associations between models
  RecipeType.hasOne(Recipe);
@@ -107,11 +129,15 @@ const Recipe = db.define("recipe", {
  Ingredient.belongsToMany(Recipe, { through: RecipeIngredients });
  Recipe.belongsToMany(Ingredient, { through: RecipeIngredients });
 
+ User.belongsToMany(Recipe, {through: FavoriteRecipes});
+ Recipe.belongsToMany(User, {through: FavoriteRecipes});
+
  //SYNC
  //RecipeType.sync();
  //Recipe.sync();
  //RecipeInstruction.sync();
  //RecipeIngredients.sync();
+ //FavoriteRecipes.sync();
 
 //Export models
-module.exports = { RecipeType, Recipe, RecipeInstruction, RecipeIngredients };
+module.exports = { RecipeType, Recipe, RecipeInstruction, RecipeIngredients, FavoriteRecipes };

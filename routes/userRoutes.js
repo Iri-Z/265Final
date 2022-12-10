@@ -14,6 +14,9 @@ router.post('/mealplanner', userController.mealplanner_post);
 //Meal Plans
 router.get('/plans', userController.plans_get);
 router.post('/plans', userController.plans_post);
+router.post('/account/favoriterecipes', userController.add_fav_post);
+router.delete('/account/favoriterecipes/:id', userController.delete_fav);
+
 
 //Particular Meal Plan
 router.get('/plans/:id', userController.plans_entry_get);

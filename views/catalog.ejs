@@ -17,6 +17,14 @@
                                     <h3><%= recipe.name %></h3>
                                     <p><%= recipe.description %></p>
                                     <a href ="/catalog/<%=recipe.id %>" style="color: aliceblue; text-decoration: underline;">View More</a>
+                                    <br>
+                                    <div class="favBtn">
+                                        <% if(favs.includes(recipe.id)) { %>
+                                            <button class="favoriteBtn" id=`<%=recipe.id %>`><i class="fa-solid fa-heart"></i></button>
+                                        <% } else { %>
+                                            <button class="favoriteBtn" id=`<%=recipe.id %>`><i class="fa-regular fa-heart"></i></button>
+                                        <% } %>
+                                    </div>
                                 </div>
                             <% } %>
                         <% }) %>
@@ -76,6 +84,51 @@
 <br><br><hr>
         <!-- row1-col-2 -->
     </div>
+
+    <script>
+        document.querySelectorAll('button.favoriteBtn').forEach(item => {
+            item.addEventListener("click", async (e) => { 
+                console.log(item.id);
+                if(favs.includes(item.id)) {
+                    console.log('Not complete');
+                    const endpoint = `/account/favoriterecipes`;
+                    fetch(endpoint, {
+                    method: 'DELETE',
+                    headers: {'Content-Type':'application/json'},
+                    body: JSON.stringify({ 
+                    recipeId: item.id,
+                    userId: user.id 
+                    })
+                    
+            })
+           .then((response) => response.json())
+           .then(location.reload())
+           .catch((err) => console.log(err));
+                } else {
+                    try {
+                     const res = await fetch("/account/favoriterecipes", { 
+                     method: 'POST', 
+                     headers: {'Content-Type':'application/json'},
+                     body: JSON.stringify({ 
+                     recipeId: item.id,
+                     userId: user.id 
+                     })
+              });
+              const returnData = await res.json();
+              if(returnData.errors) {
+                //Register errors
+
+              } else{
+                location.reload();
+              }
+              } catch (err) {
+                     console.log(err);
+              }
+                }
+             })
+            });
+
+    </script>
 
     <%- include("./partials/favs.ejs") %>
 

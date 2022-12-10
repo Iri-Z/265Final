@@ -55,14 +55,16 @@ module.exports.catalog_entry_get = async (req, res) => {
     console.log(id);
     await Recipe.findOne({where: {id: id}})
     .then((result) => {
-        if(result) {
-            res.render('recipeDetails', {title: `Recipe ${id}`});
+        const file = result.name.toLowerCase().replace(/ /g, "_");
+        const Path = '../'+ file +".pdf";
+        if(result && FileSystem.existsSync(Path)) {
+            res.render('recipeDetails', {pdf: Path, title: `Recipe ${id}`});
         } else {
             res.status(404).render('404', { message: 'The recipe you are looking for does not exist', title: "404"});
         }   
     })
     .catch((err) => {
-        res.status(404).render('404', { message: null, title: "404"});
+        res.status(404).render('404', { message: 'The recipe you are looking for does not exist', title: "404"});
     }    );
 
 };
