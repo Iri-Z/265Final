@@ -11,14 +11,12 @@
             <h1>Saved Plans</h1>
             <hr>  
         
-            <div class="myPlan_grid-container">
+            <div class="myPlan_grid-container" style="height: auto;">
 			
 				<% if (plans.length > 0) { %>
 				<% plans.forEach(plan => { %>
                     <div class="myPlan_grid-box">
-                        <h3><%= plan.id %></h3>
-                        <p><%= plan.numDays %></p>
-                        <p><%= plan.numMeals %></p>
+                        <h3>Plan <%= plan.id %></h3>
                         <a href ="/account/plans/<%=plan.id %>" style="color: aliceblue; text-decoration: underline;">View More</a>
                     </div>
             <% }) %>

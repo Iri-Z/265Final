@@ -17,9 +17,8 @@
  
             <br><br>
             <label for="accounts_numOfMeals">Included Meal Types:  
-            <scan style="color: blue; display: grid;">Lunch <br> Breakfast <br> Dinner</scan></label>
+            <scan style="color: blue; display: grid;"> <% if (breakfast) { %> Breakfast <br> <% } %> <% if (lunch) { %> Lunch <br> <% } %> <% if (dinner) { %> Dinner <br> <% } %></scan></label>
             <hr>
-            <a href="scheduler.html"><button id="update">Edit</button></a>
                 <!-- account_signInform_container -->
         </div>
                
@@ -29,7 +28,7 @@
        <div class="myScheduler_container1">
         <div class="myScheduler_header">
             <h1>My Meal Choices  </h1> 
-            <a href="/account/list/<%=planId %>">Click Here for the Ingredient List</a>
+            <a href="/account/list/<%=planId %>" style="font-size: 12pt; color: blue; text-decoration: underline;" >Click Here for the Ingredient List</a>
         </div> 
         <hr style="width:775px;margin-left: 0;"> 
        <% const str = 'auto '; %>

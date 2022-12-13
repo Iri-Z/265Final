@@ -7,17 +7,20 @@
     <hr>
     <!-- row1-col-2 --> 
     <div class="icon-container">
+        <div class="groceryList_container">
+            <div id="groceryList">
+                <button style="float: right; height: 20px; margin-right: 0; margin-top: 5px;"> Print</button><br>
+                <h2>Print Your Grocery List</h2>         
         <% if (list.length > 0) { %>
-            <ul>
-                <% list.forEach((ingredient, index) => { console.log(names[index]);%>
-                    <li>
-                        <p> <%=names[index]%> :<span></span><%= ingredient.quantity %>, <%= ingredient.qualifier%> </p>
-                    </li>
+                <% list.forEach((ingredient, index) => { %>
+                        <p style="float: left; margin: auto;"> <%= ingredient.quantity %> <%= ingredient.qualifier%> <%=names[index]%> </p>
+                        <br><br>
                 <% }) %>
         <% } else { %>
             <p>There are no ingredients to display...</p>
         <% } %>
-            </ul>
+            </div>
+        </div>
     </div>
 </div>
 

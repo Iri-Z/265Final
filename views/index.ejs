@@ -9,78 +9,85 @@
    <div class="summary_page">      
 
     <p class="description_schedule"
-       class="description_schedule"> Your online Menu Planner is everything you need for<strong> -viewing -creating and  -planning </strong> your breakfast, lunch and dinner throught your day, weeks or month. <p style="margin-left: 10px;">Log-In or Create an account to edit your <strong> Scheduler </strong> and <strong>Profile.</strong> </p></p>
+       class="description_schedule"> Your online Menu Planner is everything you need for<strong> -viewing -creating and  -planning </strong> your breakfast, lunch, and dinner throughout your day, week, or month. <p style="margin-left: 10px;">Log-In or Create an account to save your <strong> Schedule</strong>.</p></p>
         
   </div>
   
    <div class="icon-container">
-    <% const catalogText = 'Find our catalog of great recipes here!';
-       const plannerText = 'Create a new meal plan here';
-       const accountText = 'Account page';
-       const dashboardText = ''; %>
-       
+    <% const catalogText = 'All of our curated recipes, with a complete grocery list of each in a pdf file';
+       const plannerText = 'The Scheduler page gives the unsubscribe vistor the option to select and print a grocery list for a day/s, week or month.';
+       const accountText = 'The Accounts page gives the vistors the ability to edit their accounts, schedulers and favorites';
+       const dashboardText = 'Your hub for everything you need to control the site.'; %>
+
   <% if (user) { %>
       <!--If a general user is signed in this is their nav bar-->
     <div id="cornflowerblue"> 
       <a href="/catalog">
-      <h3> CATALOG </h3>
+      <p> CATALOG <hr><br>FOR All USERS</p>
       <p><%=catalogText %></p>
-      <div id="imgContainer">
-        <img src ="images/catalog.png">
-      </div>
       </a>
    </div>
     <div id="gray">
       <a href="/account/mealplanner">
-        <h3> MEAL PLANNER </h3>
+        <p>MEAL PLANNER  <hr><br>FOR ACCOUNT USERS</p>
         <p><%=plannerText %> </p>     
-        <div id="imgContainer">
-          <img src ="images/scheduler.png">
-        </div>
       </a>
     </div>    
     <div id="blue">
       <a href="/account/user/<%= user.id %>">
-        <h3> ACCOUNT </h3>
+        <p> ACCOUNT <hr><br>FOR ACCOUNT USERS</p>
         <p><%=accountText %> </p> 
-      <div id="imgContainer">
-       <img src ="images/sign-in.png">
-       </div>
      </a>
   </div>
 
   <% } else if (admin) { %>
       <!--If an admin is signed in this is their nav bar-->
-    <div id="cornflowerblue" style="margin-left: 90px;"> 
+    <div id="cornflowerblue" style="height: 53%;"> 
         <a href="/catalog">
-        <h3> CATALOG </h3>
+        <p> CATALOG <hr><br>FOR All USERS</p>
         <p><%=catalogText %> </p>
-        <div id="imgContainer">
-           <img src ="images/catalog.png">
-        </div>
         </a>
     </div>
 
-    <div id="orange" style="margin-right: 5%;">
+    <div id="gray" style="height: 53%;">
+      <a href="/account/mealplanner">
+        <p>MEAL PLANNER  <hr><br>FOR ACCOUNT USERS</p>
+        <p><%=plannerText %> </p>     
+      </a>
+    </div>    
+    <div id="blue" style="margin-right: 10px; height: 53%;">
+      <a href="/account/user/<%= admin.id %>">
+        <p> ACCOUNT <hr><br>FOR ACCOUNT USERS</p>
+        <p><%=accountText %> </p> 
+     </a>
+  </div>
+
+    <div id="orange" style="margin-right: 20px; height: 53%;">
       <a href="/admin/dashboard">
-      <h3> DASHBOARD </h3>    
+        <p> DASHBOARD <hr><br>FOR ADMIN USERS</p>    
       <p><%= dashboardText %> </p>
-        <div id="imgContainer">
-          <img src ="images/admin-sys.png">
-        </div>
       </a>
     </div>
   <% } else { %>
       <!--If no one is signed in this is their nav bar-->
-      <div id="cornflowerblue" style="margin-left: 290px;"> 
+      <div id="cornflowerblue"> 
         <a href="/catalog">
-        <h3> CATALOG </h3>
-        <p><%=catalogText %> </p>
-        <div id="imgContainer">
-           <img src ="images/catalog.png">
-        </div>
+        <p> CATALOG <hr><br>FOR All USERS</p>
+        <p><%=catalogText %></p>
         </a>
-      </div>
+     </div>
+      <div id="gray">
+        <a href="/signup">
+          <p>MEAL PLANNER  <hr><br>FOR ACCOUNT USERS</p>
+          <p><%=plannerText %> </p>     
+        </a>
+      </div>    
+      <div id="blue">
+        <a href="/signup">
+          <p> ACCOUNT <hr><br>FOR ACCOUNT USERS</p>
+          <p><%=accountText %> </p> 
+       </a>
+    </div>
       <!-- <div id="gray" style="margin-right: 5%;">
         <a href="/example">
           <h3> MEAL PLANNER</h3>

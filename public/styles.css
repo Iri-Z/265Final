@@ -161,6 +161,20 @@
       border: 1px solid black;
     
   }
+  .groceryList_container{
+    border: 2px solid black;
+    overflow: auto; 
+    height:90%; 
+    width: 50%;
+    margin-left: 25%;  
+    margin-top: 20px;
+}
+#groceryList{
+    margin-left: 15px;
+    height: 20%;   
+    width: 95%;
+    float: left;  
+}
   .tab{
      display: inline-block;
      margin-left: 40px;
@@ -172,7 +186,7 @@
       color: white;
       margin-top: 100px;
       width: 60%;
-      height: 40%;
+      height: 60%;
       margin-right: 20px;
       margin-left: 10px;
       max-width: 400px;
@@ -182,7 +196,7 @@
       background-color: #85898C;
       color: white;
       width: 60%;
-      height: 40%;
+      height: 60%;
       margin-top: 100px;
       margin-right: 10px;
       margin-left: 10px;
@@ -192,7 +206,7 @@
       background-color: #B4C4D9;
       color: white;
       width: 60%;
-      height: 40%;
+      height: 60%;
       margin-top: 100px;
       margin-right: 10px;
       margin-left: 20px;
@@ -202,7 +216,7 @@
        background-color: #F25757;
        color: white;
        width: 60%;
-       height: 40%;
+       height: 60%;
        margin-top: 100px;
        margin-right: 10px;
        margin-left: 10px;
@@ -360,6 +374,7 @@
       padding-top: 7px;
       padding-left: 15px;
       color: whitesmoke;
+      min-width: 270px;
   }
      
   /*-------------------Modal---------------------*/

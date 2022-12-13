@@ -41,11 +41,17 @@ module.exports.plans_entry_get = async (req, res) => {
     const id = req.params.id;
     var numDays;
     var numMeals;
+    var breakfast;
+    var lunch;
+    var dinner;
     await Plan.findOne({where: {id: id}})
         .then((result) => {
             if (result) {
                 numDays = result.numDays;
                 numMeals = result.numMeals;
+                breakfast = result.breakfast;
+                lunch = result.lunch;
+                dinner = result.dinner;
             }
         });
     await PlanRecipe.findAll({where: {planId: id}})
@@ -53,7 +59,7 @@ module.exports.plans_entry_get = async (req, res) => {
         await Plan.findRecipes(result)
         .then((meals) => {
             if(meals.length > 0){
-                res.render('planDetails', { recipes: meals, numDays, numMeals, planId: id, title: 'Plan '+id });
+                res.render('planDetails', { recipes: meals, numDays, numMeals, breakfast, lunch, dinner, planId: id, title: 'Plan '+id });
             } else {
                 res.status(404).render('404', { message: "The meal plan you are trying to find does not exist. It may have been deleted", title: "404"});
             }
