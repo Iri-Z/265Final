@@ -3,11 +3,15 @@
     <hr>
     <!--For loop - look up user's favorited recipes and display-->
     <ul>
-        <% if(favs.length > 0) { 
-            favNames.forEach(item => { %>
-                <li><%= item %></li>
-            <% })} else { %>
-                <li>You haven't favorited anything yet</li>
+        <% if(favs) { %>
+            <% if(favs.length > 0) { 
+                favNames.forEach(item => { %>
+                    <li><%= item %></li>
+                <% })} else { %>
+                    <li>You haven't favorited anything yet</li>
+                <% } %>
+            <% } else { %>
+                <li>Create an account to save your favorite recipes here!</li>
             <% } %>
     </ul>
      <!-- row1-col-3 -->

@@ -1,7 +1,9 @@
 const User = require('../models/User').User;
 const Recipe = require('../models/Recipe').Recipe;
 const jwt = require('jsonwebtoken');
+const fs = require("fs");
 const { result } = require('lodash');
+const { RecipeType } = require('../models/Recipe');
 
 //handle errors on Public pages
 
@@ -54,11 +56,12 @@ module.exports.catalog_entry_get = async (req, res) => {
     const id = req.params.id;
     console.log(id);
     await Recipe.findOne({where: {id: id}})
-    .then((result) => {
+    .then(async (result) => {
+        const type = await RecipeType.findByPk(result.recipeTypeId);
         const file = result.name.toLowerCase().replace(/ /g, "_");
-        const Path = '../'+ file +".pdf";
-        if(result && FileSystem.existsSync(Path)) {
-            res.render('recipeDetails', {pdf: Path, title: `Recipe ${id}`});
+        const Path = "./public/" + type.type + "/" + file +".pdf";
+        if(result && fs.existsSync(Path)) {
+            res.render('recipeDetails', {pdf: "/" + type.type + "/" + file +".pdf", title: `Recipe ${id}`});
         } else {
             res.status(404).render('404', { message: 'The recipe you are looking for does not exist', title: "404"});
         }   

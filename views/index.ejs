@@ -6,13 +6,19 @@
         
     <p style="padding-left: 11px; ">HOME</p>
    <hr>
+   <div class="summary_page">      
+
+    <p class="description_schedule"
+       class="description_schedule"> Your online Menu Planner is everything you need for<strong> -viewing -creating and  -planning </strong> your breakfast, lunch and dinner throught your day, weeks or month. <p style="margin-left: 10px;">Log-In or Create an account to edit your <strong> Scheduler </strong> and <strong>Profile.</strong> </p></p>
+        
+  </div>
+  
    <div class="icon-container">
     <% const catalogText = 'Find our catalog of great recipes here!';
        const plannerText = 'Create a new meal plan here';
        const accountText = 'Account page';
        const dashboardText = ''; %>
-
-
+       
   <% if (user) { %>
       <!--If a general user is signed in this is their nav bar-->
     <div id="cornflowerblue"> 
@@ -66,7 +72,7 @@
     </div>
   <% } else { %>
       <!--If no one is signed in this is their nav bar-->
-      <div id="cornflowerblue" style="margin-left: 90px;"> 
+      <div id="cornflowerblue" style="margin-left: 290px;"> 
         <a href="/catalog">
         <h3> CATALOG </h3>
         <p><%=catalogText %> </p>
@@ -75,7 +81,7 @@
         </div>
         </a>
       </div>
-      <div id="gray" style="margin-right: 5%;">
+      <!-- <div id="gray" style="margin-right: 5%;">
         <a href="/example">
           <h3> MEAL PLANNER</h3>
           <p> Trial Example <%= plannerText %> </p>     
@@ -83,7 +89,7 @@
             <img src ="images/scheduler.png">
           </div>
         </a>
-      </div> 
+      </div>  -->
       
   <% } %>        
         <!-- icon-container -->
