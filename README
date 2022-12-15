@@ -1,4 +1,7 @@
 Welcom to the meal planner project created by Iri Zink, Torri Baptista, and Kirsten Schlorke. 
 To run this project, after successful download of all files it is good to check if all dependencies have also been installed. 
-Use npm install to install all dependencies.
+Currently, it is necessary to host the database on your local device. The dump for all necesary database schema and current entries has been included. 
+To match the development environment use MySQL Workbench. Ensure that all information within the config/database.js file matches your newly created database.
+Use npm install to install all dependencies (if that is unsucessful then dependencies can be found within the package-lock file and installed separetly)
+It is necessary to have Node.js installed on your computer to run this web app.
 Use command ( node app ) or ( nodemon app ) in the terminal and open localhost:3000 to view this project. 
