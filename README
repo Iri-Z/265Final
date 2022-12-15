@@ -5,3 +5,5 @@ To match the development environment use MySQL Workbench. Ensure that all inform
 Use npm install to install all dependencies (if that is unsucessful then dependencies can be found within the package-lock file and installed separetly)
 It is necessary to have Node.js installed on your computer to run this web app.
 Use command ( node app ) or ( nodemon app ) in the terminal and open localhost:3000 to view this project. 
+
+All files other than those found within node_modules folder and the automatically generated package-lock, package, and sql dump file were written by the students. 
