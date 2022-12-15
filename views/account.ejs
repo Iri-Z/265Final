@@ -19,45 +19,50 @@
     <hr>
 <!-- ------------------------------------------------------- -->  
                     
-    <div class="log_In_form" style="background-color:#D6D9C5; width: 400px;">
+    <div class="log_In_form" style="background-color:#D6D9C5; width: 410px;">
 	
-	<form>
+	<form id="accountForm">
        <div class="account_form_container">
         <h3>Account Information</h3>
         <div style="display: flex">
             <p><span style="font-size: large; font-weight: bold; margin-left: 15px;">Account ID:</span><span class="tab"></span> <%=User.id%></p>
+            <input  id="userId" name="userId" style="visibility: hidden;" type="hidden" value="<%=User.id%>">
         </div>
 
         <div style="display: flex">
             <p><span style="font-size: large; font-weight: bold; margin-left: 15px;">First Name:</span><span class="tab"></span> <%=User.fName%></p><br>
+            <input  id="fName" name="fName" style="visibility: hidden;" class="hidden" required value="<%=User.fName%>">
         </div>
-        <input  id="fName" type="hidden" required placeholder="Updated First Name">
 
         <div style="display: flex">
             <p><span style="font-size: large; font-weight: bold; margin-left: 15px;">Last Name:</span><span class="tab"></span> <%=User.lName%></p><br>
+            <input id="lName" name="lName" style="visibility: hidden;" class="hidden" required value="<%=User.lName%>">
         </div>
-        <input id="lName" type="hidden" required placeholder="Updated Last Name">
 
         <div style="display: flex">
             <p><span style="font-size: large; font-weight: bold; margin-left: 15px;">Email:</span><span class="tab"></span> <%=User.email%></p><br>
+            <input id="email" name="email" style="visibility: hidden;" class="hidden" required value="<%=User.email%>">        
         </div>
-        <input id="email" type="hidden" required placeholder="Updated Email">
+
+        <div style="display: flex">
+            <p><span style="font-size: large; font-weight: bold; margin-left: 15px;">Phone Number:</span><span class="tab"></span> <%=User.phone%></p><br>
+            <input id="phone" name="phone" style="visibility: hidden;" class="hidden" value="<%=User.phone%>">        
+        </div>
 
         <div style="display: flex">
             <p><span style="font-size: large; font-weight: bold; margin-left: 15px;">Username:</span><span class="tab"></span> <%=User.username%></p><br>
+            <input id="username" name="username" style="visibility: hidden;" class="hidden" required value="<%=User.username%>"> 
         </div>
-        <input id="username" type="hidden" required placeholder="Updated Username"> 
 
         <div style="display: flex">
             <p><span style="font-size: large; font-weight: bold; margin-left: 15px;">Password:</span><span class="tab"></span> Hidden Value</p>
+            <input id="password" name="password" style="visibility: hidden;" class="hidden" required placeholder="Updated Password">
         </div>
-        <input id="password" type="hidden" required placeholder="Updated Password">
         <br>
-        <br><br>
         <hr>
-        <button id="edit" style="float: left; margin-left: 20px;">Edit</button>
-        <button style="visibility: hidden;">Update</button>
-        <button style="visibility: hidden;" style="text-decoration: underline; color: blue;">Reset</button>
+        <button type="button" id="edit" class="edit" style="float: left; margin-left: 20px;">Edit</button>
+        <button type="button" id="cancel" class="cancel" style="visibility: hidden; float: left; margin-left: 20px;">Cancel</button>
+        <button type="button" id="update"style="visibility: hidden;" class="hidden">Update</button>
         <br>
            
            <!-- Account Container Form -->
@@ -91,6 +96,64 @@
 <%- include("./partials/footer.ejs") %>
 
 <script>
+    editBtn = document.getElementById("edit");
+    updateBtn = document.getElementById("update");
+    cancelBtn = document.getElementById('cancel');
+    accountForm = document.getElementById('accountForm');
+
+    editBtn.addEventListener('click', (e) => {
+        inputs = Array.from(document.querySelectorAll("input.hidden"));
+        buttons = Array.from(document.querySelectorAll("button.hidden"));
+        
+        inputs.forEach(input => {
+            input.style.visibility = "visible";        
+        });
+        buttons.forEach(button => {
+            button.style.visibility = "visible";
+        });
+        editBtn.style.visibility = "hidden";
+        cancelBtn.style.visibility = "visible";
+
+    });
+
+    updateBtn.addEventListener('click', async (e) => {
+        const userId = accountForm.userId.value;
+        const fName = accountForm.fName.value;
+        const lName = accountForm.lName.value;
+        const email = accountForm.email.value;
+        const phone = accountForm.phone.value;
+        const username = accountForm.username.value;
+        const password = accountForm.password.value;
+
+        try {
+            const res = await fetch(`/account/user/${userId}`, {
+                method: 'POST',
+                body: JSON.stringify({fName, lName, email, phone, username, password}),
+                headers: { 'Content-Type': 'application/json'}
+            })
+            .then(location.reload(true));
+
+        }catch (err) {
+            console.log(err);
+        }
+    });
+
+    cancelBtn.addEventListener('click', (e) => {
+        inputs = Array.from(document.querySelectorAll("input.hidden"));
+        buttons = Array.from(document.querySelectorAll("button.hidden"));
+        
+        inputs.forEach(input => {
+            input.style.visibility = "hidden";        
+        });
+        buttons.forEach(button => {
+            button.style.visibility = "hidden";
+        });
+        editBtn.style.visibility = "visible";
+        cancelBtn.style.visibility = "hidden";
+
+    });
+
+
 
 
 </script>

@@ -67,7 +67,6 @@ const User = db.define("users", {
             return bcrypt.compareSync(password, this.password);
            }
           }
-
  });
 
  const AuthLevel = db.define("AuthLevels", { 
