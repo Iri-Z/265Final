@@ -1,4 +1,4 @@
 Welcom to the meal planner project created by Iri Zink, Torri Baptista, and Kirsten Schlorke. 
 To run this project, after successful download of all files it is good to check if all dependencies have also been installed. 
 Use npm install to install all dependencies.
-Use command ( node app ) or ( nodemon app ) and open localhost:3000 to view this project. 
+Use command ( node app ) or ( nodemon app ) in the terminal and open localhost:3000 to view this project. 
