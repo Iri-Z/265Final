@@ -1,4 +1,5 @@
-Welcom to the meal planner project created by Iri Zink, Torri Baptista, and Kirsten Schlorke. 
+Welcome to the meal planner project created by Iri Zink, Torri Baptista, and Kirsten Schlorke. 
+
 To run this project, after successful download of all files it is good to check if all dependencies have also been installed. 
 Currently, it is necessary to host the database on your local device. The dump for all necesary database schema and current entries has been included. 
 To match the development environment use MySQL Workbench. Ensure that all information within the config/database.js file matches your newly created database.
