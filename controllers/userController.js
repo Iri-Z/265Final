@@ -102,14 +102,13 @@ module.exports.list_entry_get = async (req, res) => {
 module.exports.account_post = async (req, res) => {
     //Update Account information
     const id = req.params.id;
-    const {fName, lName, email, phone, username, password} = req.body;
+    const {fName, lName, email, phone, username} = req.body;
 
     await User.update(
     {
         fName: fName,
         lName: lName,
         username: username,
-        password: password,
         email: email,
         phone: phone
     },

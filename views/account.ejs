@@ -56,7 +56,6 @@
 
         <div style="display: flex">
             <p><span style="font-size: large; font-weight: bold; margin-left: 15px;">Password:</span><span class="tab"></span> Hidden Value</p>
-            <input id="password" name="password" style="visibility: hidden;" class="hidden" required placeholder="Updated Password">
         </div>
         <br>
         <hr>
@@ -123,12 +122,11 @@
         const email = accountForm.email.value;
         const phone = accountForm.phone.value;
         const username = accountForm.username.value;
-        const password = accountForm.password.value;
 
         try {
             const res = await fetch(`/account/user/${userId}`, {
                 method: 'POST',
-                body: JSON.stringify({fName, lName, email, phone, username, password}),
+                body: JSON.stringify({fName, lName, email, phone, username}),
                 headers: { 'Content-Type': 'application/json'}
             })
             .then(location.reload(true));
